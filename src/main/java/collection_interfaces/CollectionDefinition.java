@@ -13,7 +13,7 @@ public abstract class CollectionDefinition {
        ]
        Lists can hold any Type of Object
        Lists can't be initialized...
-       You can, however, initialize another implementation list:
+       You can, however, initialize implementation of another list:
        ArrayList:
        Order - insertion order is preserved (insertion order of the values)
        LinkedList:
@@ -29,7 +29,7 @@ public abstract class CollectionDefinition {
        Sets can hold any Type of Object
        Sets DO NOT allow Duplicates
        Sets can't be initialized...
-       You can, however, initialize another implementation set:
+       You can, however, initialize implementation of another set:
        HashSet:
        Order - no order is guaranteed
        TreeSet:
@@ -42,7 +42,7 @@ public abstract class CollectionDefinition {
       ]
       Maps can hold any Type of Object
       Maps can't be initialized...
-      You can, however, initialize another implementation map:
+      You can, however, initialize implementation of another map:
       HashMap:
       Order - no order is guaranteed
       TreeMap:
