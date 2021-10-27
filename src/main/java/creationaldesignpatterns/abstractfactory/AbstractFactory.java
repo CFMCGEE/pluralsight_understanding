@@ -2,7 +2,6 @@ package creationaldesignpatterns.abstractfactory;
 
 public class AbstractFactory {
 
-
         /*
                           Abstract Factory Class (Creational Design Pattern)
                           - Factory of (similar) Factories

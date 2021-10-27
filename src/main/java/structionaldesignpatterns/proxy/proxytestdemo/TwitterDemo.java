@@ -6,9 +6,9 @@ public class TwitterDemo {
 
         TwitterService service = (TwitterService) SecurityProxy.newInstance(new TwitterServiceImpl());
 
-        System.out.println(service.getTimeline("bh5k"));
+        System.out.println(service.getTimeline("babydollgem"));
 
-        service.postToTimeline("bh5k", "Some message that shouldn't go through.");
+        //service.postToTimeline("bh5k", "Some message that shouldn't go through.");
 
     }
 
