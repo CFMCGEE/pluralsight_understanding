@@ -3,13 +3,16 @@ package behavorialdesignpattern.observer;
 public class Observer {
 
             /*
+
                           Observer Class (Behavioral Design Pattern)
                           - One to many observers
-                          - Decoupled
+                          - Decoupled (communication)
                           - Event Handling
                           - Pub/Sub
                           - M-V-C
                           - Broadcast Communication
+                          - Built in functionality
+                          - Used with mediator
                           - Examples:
                            - java.util.observer
                            - java.util.EventListener
