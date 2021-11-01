@@ -1,4 +1,4 @@
-package behavorialdesignpattern.Iterator;
+package behavorialdesignpattern.iterator;
 
 import java.util.*;
 
