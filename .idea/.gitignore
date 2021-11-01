@@ -1,4 +1,4 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-src/main/java/structionaldesignpatterns/proxy/proxytestdemo/TwitterServiceImpl.java
+/src/main/java/designpatterns/structionaldesignpatterns/proxy/proxytestdemo/TwitterServiceImpl.java
