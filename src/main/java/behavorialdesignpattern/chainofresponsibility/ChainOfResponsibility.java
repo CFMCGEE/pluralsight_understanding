@@ -51,7 +51,6 @@ public class ChainOfResponsibility {
         logger.finer("Finer level, but not as fine as finest");
         logger.fine("Fine, but not as fine as finner or finest");
 
-
     }
 
 }
