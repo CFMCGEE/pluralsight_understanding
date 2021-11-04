@@ -35,6 +35,39 @@ public class mysql_definition {
                                     - Every request for data goes into a database server
                                      - Database servers have a DBMS or database management system.
 
+                                    Relational Database Model Concepts (and Model Keys)
+                                    - Tables
+                                     - A real world entity e.g Address
+                                     - Columns (Fields)
+                                      - Attribute of the entity e.g Street #, City, Zipcode
+                                      - Data type determines the type of information
+                                       - String (Char, Varchar)
+                                       - Integer (Int)
+                                       - Float
+                                       - Data and time (Date)
+                                      - Default Value
+                                      - Nullable column (Column containing a null value)
+                                      - Auto increment column
+                                     - Rows (Records)
+                                      - Set of values for a single instance of entity e.g A single address
+                                     - Cells
+                                      - Intersection of a row and a column
+                                      - Has a single value
+                                     - Primary Key
+                                      - Unique identifier of row
+                                      - One per table
+                                      - Does not allow null
+                                      - Single or multiple columns (composite columns)
+                                     - Unique Key
+                                      - Ensures data is not duplicate
+                                      - More than one per table
+                                      - Allows one null
+                                     - Foreign Key
+                                      - Columns in a table that refer to a Primary Key of another table
+                                      - Enforces referential integrity
+                                      - One-to-one & One-to-many relationship
+
+
 
 
       */
