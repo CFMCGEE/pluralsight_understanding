@@ -19,7 +19,7 @@ public class Annotations {
                                       - Tags the class as a source of bean definitions for the application context.
                                      - @EnableAutoConfiguration annotation: (https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/EnableAutoConfiguration.html)
                                       - Tells Spring Boot to start adding beans based on classpath settings, other beans, and various property settings...
-                                      - ...for example, if spring-webmvc is on the classpath, this annotation flags the application as a web application and activates key behaviors, such as setting up a DispatcherServlet.
+                                      - ...For example, if spring-webmvc is on the classpath, this annotation flags the application as a web application and activates key behaviors, such as setting up a DispatcherServlet.
                                        - Side Note: DispatcherServlet is the front controller in Spring web applications...
                                        - ...It's used to create web applications and REST services in Spring MVC. In a traditional Spring web application, this servlet is defined in the web.xml file.
                                      - @ComponentScan annotation: (https://www.baeldung.com/spring-component-scanning)
