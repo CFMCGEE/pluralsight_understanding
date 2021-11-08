@@ -24,6 +24,8 @@ public class Annotations {
                                        - ...It's used to create web applications and REST services in Spring MVC. In a traditional Spring web application, this servlet is defined in the web.xml file.
                                      - @ComponentScan annotation: (https://www.baeldung.com/spring-component-scanning)
                                       - Tells Spring to look for other components, configurations, and services in the com/example package, letting it find the controllers.
+                                     - @Scheduled annotation: (https://www.baeldung.com/spring-scheduled-tasks)
+                                      - Defines when a particular method runs.
 
       */
 

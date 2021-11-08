@@ -36,7 +36,6 @@ public class LaExpression {
                                    Auto-unboxing
                                    - Automatically converts an object into a primitive type
 
-
                                    The java.ulti.function package has more than 40 interface
                                    - Organized in 4 categories = [
 
