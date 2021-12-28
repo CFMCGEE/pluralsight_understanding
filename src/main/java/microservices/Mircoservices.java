@@ -1,0 +1,311 @@
+package microservices;
+
+public class Mircoservices {
+
+            /*
+
+                                    Microservices
+                                    - A style of architecture where you create autonomous, independently deployable services that collaborate together to create a software application
+                                    - Small Services
+                                     - Can be owned by a team
+                                     - Easier to understand
+                                     - Can be rewritten
+                                    - Technology Choice
+                                     - Adopt new technology
+                                     - Use the right tool
+                                     - Standardize where it makes sense
+                                    - Individual Deployment
+                                     - Lower risk
+                                     - Minimize downtime
+                                     - Frequent updates
+                                    - Scaling (https://datacadamia.com/code/design/scalability#:~:text=shutting%20it%20down.-,Scaling,in%20a%20system%20reduces%20capacity.)
+                                     - Scale services individually
+                                     - Cost-effective
+                                    - Agility
+                                     - Adapt rapidly
+                                     - Easier reuse
+                                    - Monolith
+                                     - A software application that has all of its code in a single codebase
+                                      - Under a single process, host and database and single consistent technology.
+                                      - Simple
+                                      - One codebase
+                                      - Developments
+                                    - Data Ownership
+                                     - Each microservice owns their own data store
+                                    - Duplicating Data
+                                     - Denormalization
+                                    - Components
+                                     - Hosts/Processes
+                                      - Scale Out/Sharding
+                                      - Code
+                                      - Database
+                                      - Scheduled Tasks
+                                      - Message processor
+                                    - "Contracts"
+                                     - Make additive changes
+                                      - New endpoints
+                                      - New properties on DTOs
+                                     - Introduce version 2 API
+                                      - Version 1 clients must still be supported
+                                    - Avoid issues
+                                     - Team of ownership of microservices
+                                      - First, add a new capability
+                                      - Then, deploy updated microservice
+                                      - Later, updates clients
+                                     - Create automated tests
+                                      - Ensure that older clients are supported
+                                      - Run as part ofa CI build process
+                                     - Beware of shared code
+                                      - Can result in tight coupling (https://en.wikipedia.org/wiki/Coupling_(computer_programming)#:~:text=In%20software%20engineering%2C%20coupling%20is,of%20the%20relationships%20between%20modules.)
+                                     - Identify Boundaries
+                                      - Domain Driven Design* (DDD)
+                                       - Identify "bounded context"
+                                       - Break up large domains
+                                       - "Ubiquitous language"
+                                       - Microservices do not share models
+                                        - e.g OrderItem and CatalogItem
+                                       - Sketch your ideas on a whiteboard
+                                        - Run them through real-world use cases
+                                        - Identify potential problems
+                                       - Hosting Environments
+                                        - Options
+                                         - Virtual Machines
+                                         - Platform as a Service (PaaS) (https://en.wikipedia.org/wiki/Platform_as_a_service)
+                                         - Containers
+                                       - Microservice Creation
+                                        - Source control repository per microservice
+                                         - Avoid tight coupling between services
+                                        - Continuous integration build
+                                         - Run automated tasks
+                                       - Types of Test (Three at least...)
+                                        - Unit Tests
+                                         - Fast to run
+                                         - High code coverage
+                                         - TDD (https://datacadamia.com/code/design/scalability#:~:text=shutting%20it%20down.-,Scaling,in%20a%20system%20reduces%20capacity.)
+                                        - Service-level Tests
+                                         - Test a single service in isolation
+                                         - Mock collaborators
+                                         - Harder to write
+                                        - End-to-end Tests (Smoke Test)
+                                         - Production like environment
+                                         - Can be fragile
+                                        - Standardizing
+                                         - Logging
+                                          - Emits logs in the same format to a centralized location
+                                         - Heath Checks
+                                          - Have a way to report the heath of itself
+                                         - Configuration
+                                          - Each microservice have the same approach to accessing sequence and configuration
+                                         - Authentication
+                                         - Build scripts
+                                          - Standard way to build scripts
+                                        - Reduced times to create a new microservice
+                                        - Possible consistent tooling (https://en.wikipedia.org/wiki/Programming_tool#:~:text=A%20programming%20tool%20or%20software,support%20other%20programs%20and%20applications.&text=For%20example%2C%20developers%20use%20simple,all%20the%20time%20as%20tools.)
+                                         - Still allows for the best tool for the job
+                                         - Friction-free Development environment
+                                        - Increased developer productivity
+                                        - Ability to run the microservice in isolation
+                                        - Run in context of full application
+                                         - Locally (e.g Docker Compose)
+                                         - Connected to shared services
+                                        - Streamlined (https://acsicorp.com/case_study/streamlining-deployment-process/)
+                                        - Automated as possible
+                                       - Communication Patterns
+                                        - Event Bus (http://www.rribbit.org/eventbus.html)
+                                        - API Gateway
+                                        - Backend for Frontends (BFF) (https://nordicapis.com/building-a-backend-for-frontend-shim-for-your-microservices/)
+                                       - Synchronous Communication Patterns (Direct Call)
+                                        - Performance is important
+                                        - HTTP
+                                         - Industry Standard
+                                         - Easily used by any programming language
+                                         - Standard error codes
+                                          - Caching
+                                          - Proxies
+                                         - Payloads
+                                          - JSON
+                                          - XML
+                                        - RESTful APIs
+                                         - Represent information as "resources"
+                                          - e.g CatalogItem, Order
+                                         - Use standard HTTP methods
+                                          - GET to retrieve
+                                          - POST to create
+                                          - PUT to update
+                                         - Use HTTP status codes
+                                         - Media type headers (Content-Type)
+                                       - Asynchronous Communication Patterns
+                                        - Webhook callback (https://bowenli86.github.io/2016/05/18/web%20development/webhook/What-is-Callback-and-Webhook/)
+                                        - Publish messages to event bus
+                                        - Message Types
+                                         - Commands
+                                          - A request for a particular action to be performed
+                                         - Events
+                                          - A way to announce that something happened
+                                       - Resilient Communication Patterns
+                                        - Expect transient errors
+                                        - Beware of cascading failures
+                                        - Implement retries with back-off
+                                        - Circuit Breaker
+                                         - Sits between the client and the server
+                                          - Passes through (circuit breaker is "closed")
+                                          - If enough errors are detected, blocks further calls (circuit breaker is "open")
+                                          - After a timeout, allows some calls through to see if the problem has been resolved
+                                         - Caching (https://auth0.com/blog/what-is-caching-and-how-it-works/#:~:text=Caching%20is%20a%20mechanism%20to,accessing%20data%20from%20a%20cache.&text=A%20cache%20is%20a%20software,data%20can%20be%20served%20faster.)
+                                         - Messaging Resilience
+                                          - Message can be posted if the recipient is offline
+                                           - It can catch up later
+                                          - Message brokers support re-deliveries
+                                           - Dead-letter after multiple failures
+                                          - Messages by be received out of order
+                                          - Messages by be received multiple times
+                                           - Idempotent handlers
+                                       - Service Discovery
+                                        - Service Registry
+                                       - Service Discovery Alternatives
+                                        - Microservice hosting platforms (PaaS)
+                                         - DNS entry per microservice
+                                         - Auto-configured load-balancer
+                                        - Container orchestrators (e.g Kubernetes)
+                                         - Built-in DNS (https://www.cloudflare.com/learning/dns/what-is-dns/)
+                                         - Routing handles for you
+                                       - Sensitive Data
+                                        - Encrypting Data
+                                         - Encryption in transit
+                                          - Use standard algorithms
+                                          - Transport Layer Security (TLS) (https://en.wikipedia.org/wiki/Transport_Layer_Security#:~:text=Transport%20Layer%20Security%20(TLS)%2C,security%20over%20a%20computer%20network.&text=The%20TLS%20protocol%20aims%20primarily,or%20more%20communicating%20computer%20applications.)
+                                          - SSL certificates
+                                          - Certificate management
+                                         - Encryption at rest
+                                          - Disk encryption
+                                          - Key management
+                                          - Encrypt backups
+                                         - HTTP Authorization
+                                          - Username & password
+                                           - Basic Authentication
+                                           - Client login
+                                           - Requires password storage
+                                          - API Key
+                                           - Key per client
+                                           - Key management
+                                          - Client certificate
+                                           - Public-key cryptography
+                                           - Complex management
+                                         - Usage of Identify Server
+                                          - Using industry-standard protocols (ISP)
+                                           - OAuth 2.0 & OpenID Connect
+                                          - Goes from client application to the microservice via the access token
+                                          - Authorization Server does the verification
+                                         - Authorization
+                                          - Authentication
+                                           - Who is calling?
+                                          - Authorization
+                                           - What can they do?
+                                           - e.g I can see my orders
+                                           - I should not be allowed to see your orders
+                                          - Authorization frameworks
+                                           - Can make decisions based on "roles"
+                                           - Consider carefully what callers should be able to do
+                                          - Confused Deputy
+                                         - Securing the Network
+                                          - Virtual Network
+                                           - Reject incoming traffic from outside the virtual network
+                                           - Protect back-end microservices from external services
+                                           - API Gateway
+                                            - Firewall
+                                            - Distributed Denial of Server attacks (DDoS)
+                                            - SQL-Injections
+                                           - IP whitelisting
+                                         - Defense in Depth
+                                          - Encryption in transit
+                                           - Removes the ability to have your traffic listened into by unauthorized third parties
+                                          - Access tokens
+                                           - Ability to reject any unauthorized clients from incoming calls
+                                          - Network security
+                                           - Removes chances for anything to come from unauthorized network locations
+                                          - Don't rely on one technique solely
+                                          - Apply multiple layers of protection
+                                          - Additional Defensive Measures
+                                           - Penetration testing (https://www.imperva.com/learn/application-security/penetration-testing/#:~:text=A%20penetration%20test%2C%20also%20known,web%20application%20firewall%20(WAF).)
+                                            - Help from the experts
+                                           - Automated security testing
+                                            - Prove your APIS reject authorized callers
+                                           - Attack detection
+                                            - React quickly when you're under attack
+                                           - Logging/Auditing
+                                            - Know exactly who what and when in the system
+                                       - Automated Development
+                                        - Manual deployment process
+                                         - Follow a step by step guide
+                                         - Doesn't work for microservices
+                                        - Automated deployment
+                                         - Reliable and repeatable
+                                         - Frequent deployments
+                                        - Continuous integration
+                                         - Build and run tests
+                                        - Release Pipelines
+                                         - Builds the code and runs unit tests
+                                          - Deploy microservices
+                                           - Service tests
+                                            - Deploy to QA
+                                             - End-to-end tests
+                                              - Release gates
+                                               - Deploy to production
+                                        - Deployment Environments
+                                         - Developement
+                                          - Debug code
+                                         - QA (https://medium.com/@concisesoftware/everything-you-should-know-about-qa-in-software-development-the-beginners-guide-3e7afacf607c#:~:text=Quality%20assurance%20(QA)%20is%20one,or%20service%20meets%20specific%20requirements.)
+                                          - End-to-end tests
+                                          - Manual testing
+                                          - Pen testing
+                                          - Performance testing
+                                         - Production
+                                          - Per-customer
+                                          - Per-region
+                                         - Configuration Files
+                                          - Express what's different about the environment that it is being deployed in
+                                          - Cloud Infrastructure Development
+                                        - Artifact Registry
+                                         - Store build artifacts
+                                         - Deploy latest or previous version
+                                         - Container Images
+                                         - Deploy to Kubernetes (https://opensource.com/resources/what-is-kubernetes#:~:text=Kubernetes%20(%22K8s%22%20for%20short,are%20designed%20to%20be%20ephemeral.)
+                                          - YAML manifest files
+                                          - Desired state
+                                        - Independent Upgrades
+                                         - Blue green swap
+                                          - Load Balancer (https://www.radware.com/glossary/loadbalancing/#:~:text=A%20load%20balancer%20is%20used,burden%20placed%20on%20each%20server.)
+                                          - Minimal downtime
+                                         - Rolling upgrade
+                                          - Load Balanced
+                                        - Monitoring Microservices
+                                         - Many things to monitor
+                                          - Many processes on many hosts
+                                         - Centralized logs and telemetry
+                                          - System health dashboard
+                                         - Monitoring Metrics
+                                          - Host
+                                           - CPU percentage
+                                           - Memory usage
+                                           - Configure alerts
+                                          - Application
+                                           - HTTP Requests
+                                            - Errors (401, 500
+                                           - Queue length
+                                            - Possible scaling out
+                                           - Health checks
+                                            - Good to send an OK status (200)
+                                          - Logs
+                                           - Aggregated
+                                           - Containers have standardize log outputs
+                                           - Kibana
+                                           - Azure has application insights
+
+
+
+
+
+
+      */
+
+}
