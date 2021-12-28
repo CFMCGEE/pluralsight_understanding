@@ -6,6 +6,10 @@ public class Mircoservices {
 
                                     Microservices
                                     - A style of architecture where you create autonomous, independently deployable services that collaborate together to create a software application
+                                    - Gives you plenty of options
+                                    - Every context is different
+                                    - Plenty more to know about Microservices (Keep learning!)
+                                    - Won't get right the first time (try again!)
                                     - Small Services
                                      - Can be owned by a team
                                      - Easier to understand
@@ -300,11 +304,6 @@ public class Mircoservices {
                                            - Containers have standardize log outputs
                                            - Kibana
                                            - Azure has application insights
-
-
-
-
-
 
       */
 
