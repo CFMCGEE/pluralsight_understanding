@@ -1,0 +1,200 @@
+package cloudfoundry;
+
+public class WorkingWithTheCFCLI {
+
+             /*
+
+                                            Cloud Foundry (part 2)
+                                            - Best Practices
+                                             - Don't use temporary files
+                                             - Don't use the local file system
+                                             - Don't use domain level cookies
+                                             - Handle termination gracefully
+                                             - App should be a singleton
+                                            - Open
+                                             - Environment Freedom
+                                              - Development
+                                              - Deployment
+                                             - Industry Standards
+                                              - Secure Compliance
+                                             - Best Practices
+                                              - Build solid apps
+                                             - Infrastructure
+                                              - Reliable and scalable
+                                            - Structured
+                                            - Opinionated
+                                            - Advantages
+                                             - Increase speed
+                                              - Speed development stage to deployment time
+                                             - Multi-platform support
+                                              - Built in support for...
+                                               - Multiple frameworks
+                                               - Various languages
+                                             - Avoid vendor lock-in
+                                            - Applications
+                                            - Life Cycle
+                                             - Components
+                                              - Routing
+                                               - Load balancer which distributes incoming traffic to app instances
+                                              - Authentication
+                                               - Traffic is authenticated using the UAA service
+                                              - Execution
+                                               - An orchestrator executes CF apps
+                                               - Diego
+                                              - Services
+                                               - Brokers that bind apps to services
+                                              - Messages
+                                               - Enables intra-VM communication
+                                              - Metrics & Logs
+                                               - Collects metrics and logs from apps
+                                             - Cloud Controller
+                                              - Keeps the system together
+                                              - Handles app lifecycle: pushing, staging and running
+                                              - Handles the operating system stack
+                                              - Handles the build pack used for compiling the app's code
+                                              - Handles deployment, and maintenance records of orgs and spaces
+                                            - Stages
+                                             - Pre-Deployment
+                                              - Steps
+                                               - Manifest
+                                                - Metadata required to deploy an app
+                                               - Push
+                                                - CLI command that deploys an app
+                                               - Running
+                                                - Application running on the Cloud Foundry space
+                                             - Deployment
+                                              - The push command created a deployment artifact
+                                              - Buildpack
+                                               - Compile & package
+                                               - Dependencies
+                                               - Source code
+                                               - Container Image
+                                               - Container Instance (Deploy)
+                                            - Open Source
+                                             - Open and Extensible
+                                            - Deployment automation
+                                             - Use existing tools with code changes
+                                            - Flexible infrastructure
+                                             - CF works with all major cloud providers
+                                            - Commercial options
+                                             - Offered by certified providers (e.g. IBM and SAP)
+                                            - Community support
+                                             - From certified providers, users and enthusiasts
+                                            - Subsystems
+                                             - Log Aggregating
+                                              - Components and the host VMs generate logs and metrics
+                                             - Load Balancing
+                                              - Balances processing loads in the cloud over multiple machines and optimizing for efficiency and resilience against point failures
+                                             - Running Apps
+                                              - Packages the user's apps to run on their own machines
+                                             - Organizing Users and Workspaces
+                                              - Manges user accounts through to user account and authentication servers, which support access control for 0Auth2 services and can store user information internally
+                                             - Storing Resources
+                                              - Makes use of several storing resources
+                                               - Github
+                                                - Source
+                                                - Configurations
+                                                - Documentation
+                                               - Internal or external blob stores for large binary files
+                                             - Component Communication
+                                              - Components communicate by sending messages internally, mostly using HTTP and HTTPS protocols
+                                             - Monitoring and Analyzing
+                                              - Ability to generate a system log from its various components and also logs from hosted applications
+                                            - Command Line Interface (CLI)
+                                             - Secure Communication
+                                              - Proxy Servers
+                                              - Self-signed certificates
+                                             - Plugin Functionality
+                                              - Official and 3rd party plugins
+                                              - Own plugins
+                                             - Command Line
+                                              - Manage cloud resources
+                                            - Commands
+                                             - Resource: https://docs.pivotal.io/application-service/2-8/cf-cli/cf-help.html
+                                            - Uses a role-based access control system to grant appropriate permission to users
+                                             - Orgs
+                                              - Development account
+                                              - Individual or multiple collaborators
+                                              - Default set to active
+                                             - Spaces
+                                              - Shared location for app management within an org
+                                              - Every app, service and route is scoped to a space
+                                              - Multiple spaces within one org
+                                              - Quotas can be set for spaces
+                                             - Roles
+                                              - Define a user's permissions in orgs and spaces
+                                              - Org roles must be assigned before assigning a space role for a user
+                                            - User Roles
+                                             - Admin
+                                              - Admin
+                                              - Admin Read-only
+                                              - Global Auditor
+                                             - Org
+                                              - Org Manager
+                                              - Org Auditor
+                                              - Org user
+                                             - Space
+                                              - Space Manager
+                                              - Space Developer
+                                             - User Role Permissions
+                                              - Assign User Roles (Admin, Org Manager, Space Manager)
+                                              - Manage Org Quotas (Admin)
+                                              - Create/Delete Orgs (Admin)
+                                              - Manage Orgs (Admin, Org Manager)
+                                              - Manage Space Quotas (Admin, Org Manager)
+                                              - Create/Delete Spaces (Admin, Org Manager)
+                                              - Manage Spaces (Admin, Org Manager, Space Manager)
+                                              - Manage Apps (Admin, Space Developer
+                                            - Working with Services [Marketplace Services]
+                                             - Existing services provided by the CloudFoundry provider
+                                             - These services might differ between marketplaces and orgs
+                                             - They provide additional functionality to CF applications
+                                             - Legend
+                                              - s - service / p - plan - / si - service instance / sk - service key
+                                              - '{"storage_gb":4}' - configuration parameters
+                                              - "uat, web" - service tags
+                                              - otherspace - another space / mydb - database service
+                                             - Marketplace
+                                              - Services available to the target org
+                                             - Create instance
+                                              - Choose a service to instantiate
+                                             - Bind service
+                                              - Bind the server instance to an app
+                                             - Service Instances
+                                              - Must be created before it is used in an app's manifest file
+                                              - Service
+                                               - The name of the service to create an instance
+                                              - Plan
+                                               - The plan suited for the service
+                                              - Instance
+                                               - The name to give to the service instance
+                                             - The service to be shared must not already exist in a space
+                                             - The space AND user must have access the service and plan
+                                             - Service keys cannot be created from a space that a service has been shared into
+                                             - Sharing the service does not automatically update app security groups
+                                             - Not all services are enabled for sharing instances
+                                            - Plugs
+                                             - Provided by CF
+                                             - Provided by Other Developers
+                                             - Community plugin page
+                                             - Github plug repository
+                                              - Provides information to make your own plugin
+                                             - Can add convenient and extra functionality to the CLi
+                                             - These are not vetted in any way, including for security or functionality
+                                             - The CF CLI identifies a plugin by its binary filename
+                                             - Developer-defined plugin name and the commands that plugin provides
+                                             - Uses case sensitive names
+                                             - Benefits
+                                              - Extend
+                                               - Adds extra commands and capabilities to the CLi
+                                              - Enhance
+                                               - Improve existing CF commands
+                                              - Facilitate
+                                               - The overall process of working with CF
+                                              - Wide range of items to choose from
+                                              - Ability to make your own plugin
+                                              - Quicker results through plugins
+
+      */
+
+}

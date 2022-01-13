@@ -1,0 +1,164 @@
+package cloudfoundry;
+
+public class TheBigPicture {
+
+             /*
+
+                                            Cloud Foundry
+                                            - An open-source, cloud-native application platform which brings simplicity to applications and help provide infrastructure and developer frameworks such as Kubernetes
+                                            - Key Features
+                                             - Built-tenancy scheme [Tenancy]
+                                              - Logical and physical of tenants
+                                              - Orgs map to business united, have quote plans and unique roles
+                                              - Spaces map to teams or products, hold apps and have unique roles
+                                             - Buildpacks and deployment automation
+                                              - Produces runnable artifact from code
+                                              - Uses major languages
+                                              - The deployment API is accessed through the "cf push" CLI command
+                                             - App runtime supporting multiple languages [Application Runtime]
+                                              - Tasks
+                                              - Long Running Processes (LRPs) (e.g websites)
+                                              - Sets environment variables, connects to the backing services
+                                              - Tracks revisions to code and configuration
+                                              - Diego
+                                             - Automated ingress and routing [Network Automation]
+                                              - Routing tables holds up-to-date mapping of routes to apps
+                                              - Add HTTP or TCP routes, container-to-container path
+                                              - Add route interceptors
+                                              - Admin-defined policies govern egress traffic
+                                             - Services marketplace model
+                                              - Advertises backing services available to developers
+                                              - Create new instances or attach to existing ones
+                                              - Credentials delivered to bound apps at runtime
+                                              - Share service instances between chosen environments
+                                             - Integrated logging and monitoring
+                                              - Logs and metrics come from platform and apps
+                                              - Multiple types of app logs, metrics
+                                              - Integrated app health checks and platform health triggers
+                                              - Extensibility points to send logs/metrics to 3rd parties
+                                             - Infrastructure provisioning and orchestration [Infrastructure Management]
+                                              - Deploy via automation onto any major IaaS
+                                              - Rolling updates for software or OS changes
+                                            - Multiple As-A-Service
+                                             - Options (https://thecustomizewindows.com/2011/08/cloud-computing-saas-paas-laas-what-are-these-terms/)
+                                              - Infrastructure-as-a-Service
+                                               - API-Enabled infrastructure
+                                               - Flexible, less constraints
+                                               - Manages OS within Virtual Machines
+                                               - Component integration
+                                               - Deployment of Software
+                                              - Container-as-a-Service
+                                               - Orchestrate containerized software
+                                               - Provides workload-centric feature
+                                               - Manages images
+                                               - Component integration
+                                               - Server stack
+                                              - Platform-as-a-Service
+                                               - Integrated machinery for custom-built application
+                                               - Typically opinionated, but extensible
+                                               - Manges policies
+                                               - Application-level patching
+                                              - Function-as-a-Service
+                                               - Event-driven, short-lived compute
+                                               - Limited flexibility, high velocity
+                                               - Manages app code only
+                                                - Dependencies
+                                              - Software-as-a-Service
+                                               - Configure ready-to-use software
+                                               - Work with fixed extensibility points
+                                               - No infrastructure to manage
+                                            - Application Platform
+                                             - Aware of the workload
+                                             - Integrated an experience
+                                             - Infrastructure Orchestration
+                                             - Network Automation
+                                             - Integrated Logging (w/ Monitoring)
+                                             - UX for Developers and Ops
+                                             - Managed Backing Services
+                                             - Automated Deployments
+                                            - CF Architecture
+                                             - Routing
+                                              - The router directs traffic from operators (to Cloud Controller) or app users to the right component.
+                                              - Performs HTTP and TCP routing
+                                             - Authentication
+                                              - User Account and Authentication (UAA)
+                                              - Authentication users with their CF credentials
+                                              - It also is an 0Auth2 provider that issues tokens (With various scopes) for those acting on behalf of CF users
+                                             - App Lifecycle
+                                              - The Cloud Controller has API endpoints for interacting with apps.
+                                              - Sends instruction for container orchestration to Diego Brain.
+                                              - Brain also maintains desired numbers of app instances.
+                                             - App Storage & Execution
+                                              - Blobstore holds app code, buildpacks, droplets
+                                              - Diego cells are VMs which create and run app containers
+                                             - Services
+                                              - Service Broker API used to advertise services and plans, provision, bind, unbind and deprovision instances
+                                             - Messaging
+                                              - BBB has a database that represents the current state of work in Diego cluster
+                                              - BOSH DNS provides service discovery between VMs
+                                             - Metrics & Logging
+                                              - Application and CF component logs are gathered and streamed to interested parties
+                                            - CF Security
+                                             - Infrastructure and Patching
+                                              - Isolation segments lets you carve out standalone resource polls for workloads
+                                              - Ships with embedded Operating Systems that's patched regularly
+                                              - Regularly-updated buildpacks support the fast patching of app "stack"
+                                             - Networking
+                                              - Components run in a dedicated network with small public surface area
+                                              - Inbound traffic is over HTTPS, and most internal traffic uses SSL/TS
+                                              - Application Security Groups (ASGs) are 'allow rules for outbound traffic
+                                             - Access and Secrets
+                                              - Built-in tenancy model supported by identify management system (UAA)
+                                              - CredHub is a credential management system used by Cloud Foundry, and open to apps on the platform
+                                              - Share instances of services between spaces without credential sprawl
+                                             - Workload Security
+                                              - All apps run inside a OCI-compatible container
+                                              - To direct network access to running container
+                                              - Unprivileged containers are hardened with read-only mounts, limited permissions usage quotes AppArmor, configuration and seccomp whitelisting
+                                            - Hosting
+                                             - Options
+                                              - Local (e.g Desktop)
+                                              - Self-Managed (e.g Cloud)
+                                              - Vendor Managed
+                                              - As-A-Service (a bunch of different vendors)
+                                            - Patterns vs Anti-Pattern
+                                             - Patterns
+                                              - Use external object or file storage
+                                              - Session state stored centrally
+                                              - Graceful shutdown and fast startup
+                                              - Small deployment packages
+                                              - Architect to scale out
+                                              - Decomposed systems
+                                              - Moderate CPU and RAM demands
+                                              - Injected configuration
+                                             - Anti-Pattern
+                                              - Use local file system
+                                              - Keeps session in memory on nodes
+                                              - Complex startup and shutdown routine
+                                              - Large deployment packages
+                                              - Architect to scale up
+                                              - Monolithic systems
+                                              - CPU and RAM intensive
+                                              - Hard-coded configuration
+                                            - Partner Ecosystem
+                                             - Distributions
+                                              - From vendors like VMware, IBM, SUSE, and SAP
+                                              - Each offer add-on value around UX and integrations
+                                              - Different Infrastructure provider support by vendor
+                                             - Infrastructure Providers
+                                              - Providers for AWS, Microsoft, Google, VMware, IBM, Alibaba, OpenStack, and more
+                                              - Use native APIs in their BOSH Cloud Provider Interface (CPI)
+                                              - A Kubernetes-centric world may change this structure
+                                             - System Integrators
+                                              - A pair of CFF-approved local system integrators
+                                              - Each distribution vendor also has an ecosystem of SIs
+                                              - May offer manged services, app development or training
+                                             - Brokered Services
+                                              - Includes services for databases, app monitoring, SSO, messaging and more
+                                              - Often implemented via Open Service Broker API
+                                              - May be specific to a CF distribution or general purpose
+
+
+      */
+
+}
