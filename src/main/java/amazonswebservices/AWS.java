@@ -6,6 +6,7 @@ public class AWS {
 
                                     Amazon Web Services (AWS) (provider of Cloud Services)
                                     - Cloud Computing Services
+                                     - Cloud Computing is just a way to provide access to different sets of application services as well servers and databases over the internet.
                                      - Collection of Cloud Computing Services
                                      - Can work together or independently
                                      - Runs or supports a Computer Program
