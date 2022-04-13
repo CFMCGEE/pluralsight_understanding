@@ -3,7 +3,7 @@ package collection_interfaces;
 public abstract class CollectionDefinition {
 
         /*
-                        Collection Framework
+                        Collection Framework : (https://www.geeksforgeeks.org/difference-between-list-set-and-map-in-java/)
 
 
       Collection: An interface that has a general container for any Java Objects
